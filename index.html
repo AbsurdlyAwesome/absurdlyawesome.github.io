@@ -1,0 +1,477 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎵 AbsurdlyAwesome 🎵</title>
+  <link href="https://api.fonts.coollabs.io/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #0c0c0c;
+      padding: 20px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .sidebar h2 {
+      color: #4FD485;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .sidebar button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      background-color: #4FD485;
+      color: white;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .sidebar button:hover {
+      background-color: #3b8c66;
+    }
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+      max-width: 1200px;
+      overflow-y: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      height: calc(100vh - 40px);
+    }
+    h1 {
+      width: 100%;
+      text-align: center;
+      color: #4FD485;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+    .note {
+      width: 100%;
+      text-align: center;
+      color: #CCCCCC;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    .app-card {
+      background-color: #101011;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s;
+      width: calc(30% - 20px);
+      box-sizing: border-box;
+    }
+    .app-card:hover {
+      transform: translateY(-5px);
+    }
+    .app-title {
+      color: #4FD485;
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .rating {
+      color: #FFD700;
+      margin-top: 10px;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+    }
+    .rating .star {
+      margin-right: 8px;
+    }
+    .notes {
+      color: #CCCCCC;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+    .github-link {
+      color: #9B59B6;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+    .features-btn {
+      background-color: transparent;
+      border: 2px solid #4FD485;
+      color: #4FD485;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s, color 0.3s;
+      display: flex;
+      align-items: center;
+    }
+    .features-btn:hover {
+      background-color: #4FD485;
+      color: black;
+    }
+    .features {
+      margin-top: 15px;
+      color: #CCCCCC;
+      font-size: 0.9rem;
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    .feature-item {
+      margin-bottom: 8px;
+    }
+    .icon {
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebaar -->
+  <div class="sidebar">
+    <h2>Music Apps</h2>
+    <button onclick="filterApps('android')">Home</button>
+  </div>
+
+  <!-- Main Cotennt -->
+  <div class="content">
+    <h1>🎵 AburdslyAwesome 🎵</h1>
+    <p class="note">These are just personal Opinions. For Educational purposes only, use at your own risk.</p>
+
+    <div class="app-card" data-platform="android" id="app-1">
+      <h2 class="app-title">ViTune</h2>
+      <div class="rating">
+        <span class="star">⭐</span> Rating: 8
+      </div>
+      <p class="notes">Nice UI, nice playback, linkable with Piped</p>
+      <a href="https://github.com/25huizengek1/ViTune" target="_blank" class="github-link">
+        <span class="icon"><i class="fab fa-github"></i></span> GitHub Repo
+      </a>
+      <button class="features-btn" onclick="toggleFeatures(1)">
+        <i class="fas fa-chevron-down"></i> <span style="margin-left: 5px;">Features</span>
+      </button>
+      <ul id="features-1" class="features" style="display:none;">
+        <li class="feature-item">Play (almost) any song or video from YouTube Music</li>
+        <li class="feature-item">Play music from your device</li>
+        <li class="feature-item">Play songs in the background</li>
+        <li class="feature-item">Cache songs for offline playback</li>
+        <li class="feature-item">Search for songs, albums, artists, videos, and playlists</li>
+        <li class="feature-item">Discover new songs by mood/genre</li>
+        <li class="feature-item">Import playlists from YouTube</li>
+        <li class="feature-item">Fetch, display, and edit songs lyrics or synchronized lyrics</li>
+        <li class="feature-item">Manage your playlists locally or synchronize with the cloud</li>
+        <li class="feature-item">Highly customizable (dynamic theme, Material You, ...)</li>
+        <li class="feature-item">Normalize audio for the perfect listening experience</li>
+        <li class="feature-item">Listen from your car using Android Auto</li>
+        <li class="feature-item">Open YouTube/YouTube Music links (watch, playlist, channel, etc.) with ViTune</li>
+        <li class="feature-item">Ridiculously lightweight APK</li>
+      </ul>
+    </div>
+
+    <div class="app-card" data-platform="android" id="app-2">
+      <h2 class="app-title">MusicYou</h2>
+      <div class="rating">
+        <span class="star">⭐</span> Rating: 8.5
+      </div>
+      <p class="notes">Nice playback, great quick picks</p>
+      <a href="https://github.com/DanielSevillano/music-you" target="_blank" class="github-link">
+        <span class="icon"><i class="fab fa-github"></i></span> GitHub Repo
+      </a>
+      <button class="features-btn" onclick="toggleFeatures(2)">
+        <i class="fas fa-chevron-down"></i> <span style="margin-left: 5px;">Features</span>
+      </button>
+      <ul id="features-2" class="features" style="display:none;">
+        <li class="feature-item">Background playback</li>
+        <li class="feature-item">Cache songs for offline playback</li>
+        <li class="feature-item">Search for songs, albums, artists, videos, and playlists</li>
+        <li class="feature-item">Bookmark artists and albums</li>
+        <li class="feature-item">Import playlists and manage local playlists</li>
+        <li class="feature-item">Fetch, display, and edit songs lyrics or synchronized lyrics</li>
+        <li class="feature-item">Open YouTube and YouTube Music links by default</li>
+        <li class="feature-item">Player features, such as sleep timer and persistent queue</li>
+        <li class="feature-item">Audio features, such as skip silence and audio normalization</li>
+        <li class="feature-item">Android Auto support</li>
+      </ul>
+    </div>
+
+    <div class="app-card" data-platform="android" id="app-3">
+      <h2 class="app-title">Innertune</h2>
+      <div class="rating">
+        <span class="star">⭐</span> Rating: 8
+      </div>
+      <p class="notes">Very nice UI</p>
+      <a href="https://github.com/Malopieds/InnerTune" target="_blank" class="github-link">
+        <span class="icon"><i class="fab fa-github"></i></span> GitHub Repo
+      </a>
+      <button class="features-btn" onclick="toggleFeatures(3)">
+        <i class="fas fa-chevron-down"></i> <span style="margin-left: 5px;">Features</span>
+      </button>
+      <ul id="features-3" class="features" style="display:none;">
+        <li class="feature-item">Play songs from YT/YT Music without ads</li>
+        <li class="feature-item">Background playback</li>
+        <li class="feature-item">Search songs, videos, albums, and playlists from YouTube Music</li>
+        <li class="feature-item">Login support</li>
+        <li class="feature-item">Library management</li>
+        <li class="feature-item">Cache and download songs for offline playback</li>
+        <li class="feature-item">Synchronized lyrics</li>
+        <li class="feature-item">Skip silence</li>
+        <li class="feature-item">Audio normalization</li>
+        <li class="feature-item">Adjust tempo/pitch</li>
+        <li class="feature-item">Dynamic theme</li>
+        <li class="feature-item">Localization</li>
+        <li class="feature-item">Android Auto support</li>
+        <li class="feature-item">Personalized quick picks</li>
+        <li class="feature-item">Material 3</li>
+        <li class="feature-item">Discord Rich Presence support</li>
+      </ul>
+    </div>
+
+    <div class="app-card" data-platform="android" id="app-4">
+      <h2 class="app-title">Musify</h2>
+      <div class="rating">
+        <span class="star">⭐</span> Rating: 9
+      </div>
+      <p class="notes">Nice UI, works nice</p>
+      <a href="https://github.com/gokadzev/Musify" target="_blank" class="github-link">
+        <span class="icon"><i class="fab fa-github"></i></span> GitHub Repo
+      </a>
+      <button class="features-btn" onclick="toggleFeatures(4)">
+        <i class="fas fa-chevron-down"></i> <span style="margin-left: 5px;">Features</span>
+      </button>
+      <ul id="features-4" ```html
+      class="features" style="display:none;">
+        <li class="feature-item">Online song search with suggestions</li>
+        <li class="feature-item">Offline listening support</li>
+        <li class="feature-item">Import & export your data and never lose it</li>
+        <li class="feature-item">Add custom playlists with links</li>
+        <li class="feature-item">Optimized sound experience</li>
+        <li class="feature-item">SponsorBlock support</li>
+        <li class="feature-item">Lyrics support</li>
+        <li class="feature-item">No ads</li>
+        <li class="feature-item">No subscriptions</li>
+        <li class="feature-item">Inbuilt updater</li>
+        <li class="feature-item">17 supported languages</li>
+        <li class="feature-item">Material UI & accent colors & dynamic colors (Android 12+)</li>
+      </ul>
+    </div>
+
+    <div class="app-card" data-platform="android" id="app-5">
+      <h2 class="app-title">SimpMusic</h2>
+      <div class="rating">
+        <span class="star">⭐</span> Rating: 9
+      </div>
+      <p class="notes">Nice UI, YouTube and Spotify login ability, nice lyrics sync</p>
+      <a href="https://github.com/maxrave-dev/SimpMusic" class="github-link">
+        <span class="icon"><i class="fab fa-github"></i></span> GitHub Repo
+      </a>
+      <button class="features-btn" onclick="toggleFeatures(5)">
+        <i class="fas fa-chevron-down"></i> <span style="margin-left: 5px;">Features</span>
+      </button>
+      <ul id="features-5" class="features" style="display:none;">
+        <li class="feature-item">Play music from YouTube Music or YouTube free without ads in the background</li>
+        <li class="feature-item">Browsing Home, Charts, Podcast, Moods & Genre with YouTube Music data at high speed</li>
+        <li class="feature-item">Search everything on YouTube</li>
+        <li class="feature-item">Analyze your playing data, create custom playlists, and sync with YouTube Music</li>
+        <li class="feature-item">Spotify Canvas supported</li>
+        <li class="feature-item">Play 1080p video option with subtitles</li>
+        <li class="feature-item">AI suggestions for songs</li>
+        <li class="feature-item">Notifications from followed artists</li>
+        <li class="feature-item">Caching and can save data for offline playback</li>
+        <li class="feature-item">Synced lyrics from Musixmatch, LRCLIB, Spotify, and YouTube Transcript</li>
+        <li class="feature-item">Personalize data and multi-YouTube-account support</li>
+        <li class="feature-item">Support SponsorBlock, Return YouTube Dislike</li>
+        <li class="feature-item">Sleep Timer</li>
+        <li class="feature-item">Android Auto with online content</li>
+      </ul>
+    </div>
+
+    <div class="app-card" data-platform="android" id="app-6">
+      <h2 class="app-title">Harmony Music</h2>
+      <div class="rating">
+        <span class="star">⭐</span> Rating: 9
+      </div>
+      <p class="notes">Nice UI, nice playback, overall nice download function</p>
+      <a href="https://github.com/anandnet/Harmony-Music" class="github-link">
+        <span class="icon"><i class="fab fa-github"></i></span> GitHub Repo
+      </a>
+      <button class="features-btn" onclick="toggleFeatures(6)">
+        <i class="fas fa-chevron-down"></i> <span style="margin-left: 5px;">Features</span>
+      </button>
+      <ul id="features-6" class="features" style="display:none;">
+        <li class="feature-item">Ability to play songs from YouTube/Youtube Music</li>
+        <li class="feature-item">Song cache while playing</li>
+        <li class="feature-item">Radio feature support</li>
+        <li class="feature-item">Background music</li>
+        <li class="feature-item">Playlist creation & bookmark support</li>
+        <li class="feature-item">Artist & Album bookmark support</li>
+        <li class="feature-item">Import song, Playlist, Album, Artist via sharing from YouTube/Youtube Music</li>
+        <li class="feature-item">Streaming quality control</li>
+        <li class="feature-item">Song downloading support</li>
+        <li class="feature-item">Language support</ li>
+        <li class="feature-item">Skip silence</li>
+        <li class="feature-item">Dynamic Theme</li>
+        <li class="feature-item">Flexibility to switch between Bottom & Side Nav bar</li>
+        <li class="feature-item">Equalizer support</li>
+        <li class="feature-item">Android Auto support</li>
+        <li class="feature-item">Synced & Plain Lyrics support</li>
+        <li class="feature-item">Sleep Timer</li>
+        <li class="feature-item">No Advertisements</li>
+        <li class="feature-item">No Login required</li>
+        <li class="feature-item">Piped playlist integration</li>
+      </ul>
+    </div>
+
+    <div class="app-card" data-platform="android" id="app-7">
+      <h2 class="app-title">Spotube</h2>
+      <div class="rating">
+        <span class="star">⭐</span> Rating: 6
+      </div>
+      <p class="notes"> Kinda slow playback</p>
+      <a href="https://github.com/KRTirtho/spotube" target="_blank" class="github-link">
+        <span class="icon"><i class="fab fa-github"></i></span> GitHub Repo
+      </a>
+      <button class="features-btn" onclick="toggleFeatures(7)">
+        <i class="fas fa-chevron-down"></i> <span style="margin-left: 5px;">Features</span>
+      </button>
+      <ul id="features-7" class="features" style="display:none;">
+        <li class="feature-item">No ads, thanks to the use of public & free Spotify and YT Music APIs</li>
+        <li class="feature-item">Freely downloadable tracks</li>
+        <li class="feature-item">Cross-platform support</li>
+        <li class="feature-item">Small size & less data usage</li>
+        <li class="feature-item">Anonymous/guest login</li>
+        <li class="feature-item">Time-synced lyrics</li>
+        <li class="feature-item">No telemetry, diagnostics, or user data collection</li>
+        <li class="feature-item">Native performance</li>
+        <li class="feature-item">Open source/libre software</li>
+        <li class="feature-item">Playback control is done locally, not on the server</li>
+      </ul>
+    </div>
+
+    <div class="app-card" data-platform="android" id="app-8">
+      <h2 class="app-title">OuterTune</h2>
+      <div class="rating">
+        <span class="star">⭐</span> Rating: 8.5
+      </div>
+      <p class="notes">Nice UI, YouTube login ability, nice setup process</p>
+      <a href="https://github.com/OuterTune/OuterTune" target="_blank" class="github-link">
+        <span class="icon"><i class="fab fa-github"></i></span> GitHub Repo
+      </a>
+      <button class="features-btn" onclick="toggleFeatures(8)">
+        <i class="fas fa-chevron-down"></i> <span style="margin-left: 5px;">Features</span>
+      </button>
+      <ul id="features-8" class="features" style="display:none;">
+        <li class="feature-item">Play, search, and save all your songs, videos, albums, and playlists from YouTube Music</li>
+        <li class="feature-item">Song downloading for offline playback</li>
+        <li class="feature-item">Background playback & AD free</li>
+        <li class="feature-item">New integrated library screen design & Multiple queues</li>
+        <li class="feature-item">Advanced account synchronization</li>
+        <li class="feature-item">YouTube Music account login support</li>
+        <li class="feature-item">Fully fledged syncing of songs, subscriptions, playlists, and albums</li>
+        <li class="feature-item">Local audio file playback</li>
+        <li class="feature-item">Synchronized lyrics (LRC format, also includes multi-line support)</li>
+        <li class="feature-item">Audio normalization, tempo/pitch adjustment, and various other audio effects</li>
+        <li class="feature-item">Android Auto support</li>
+      </ul>
+    </div>
+
+    <div class="app-card" data-platform="android" id="app-9">
+      <h2 class="app-title">BloomeTunes</h2>
+      <div class="rating">
+        <span class="star">⭐</span> Rating: 7
+      </div>
+      <p class ="notes">Unique UI, JioSaavn and YouTube Music playback</p>
+      <a href="https://github.com/HemantKArya/BloomeeTunes" class="github-link">
+        <span class="icon"><i class="fab fa-github"></i></span> GitHub Repo
+      </a>
+      <button class="features-btn" onclick="toggleFeatures(9)">
+        <i class="fas fa-chevron-down"></i> <span style="margin-left: 5px;">Features</span>
+      </button>
+      <ul id="features-9" class="features" style="display:none;">
+        <li class="feature-item">Integration with JioSaavn</li>
+        <li class="feature-item">YouTube Music playback</li>
+        <li class="feature-item">Custom playlists</li>
+      </ul>
+    </div>
+
+    <div class="app-card" data-platform="android" id="app-10">
+      <h2 class="app-title">Kreate</h2>
+      <div class="rating">
+        <span class="star">⭐</span> Rating: 9
+      </div>
+      <p class="notes">RiMusic Fork</p>
+      <a href="https://github.com/knighthat/Kreate" target="_blank" class="github-link">
+        <span class="icon"><i class="fab fa-github"></i></span> GitHub Repo
+      </a>
+      <button class="features-btn" onclick="toggleFeatures(10)">
+        <i class="fas fa-chevron-down"></i> <span style="margin-left: 5px;">Features</span>
+      </button>
+      <ul id="features-10" class="features" style="display:none;">
+        <li class="feature-item">Optimized version of RiMusic</li>
+         <li class="feature-item">Multilingual: English, Italian, German, Russian, French, Spanish, Czech, Turkish, Romanian and more</li>
+
+    <li class="feature-item">Friendly designs</li>
+    <li class="feature-item">UI Mode, switch from RiMusic to classic ViMusic style, vice versa</li>
+    <li class="feature-item">Auto cache songs for offline playback with a custom cache size</li>
+    <li class="feature-item">Download songs or entire playlists for offline playback (not cache)</li>
+    <li class="feature-item">Background playback</li>
+    <li class="feature-item">Listening statistics</li>
+    <li class="feature-item">Audio visualizer on player with many types of effects</li>
+    <li class="feature-item">News, mood, musical genres, new albums from favorite artists</li>
+    <li class="feature-item">Import/Export online, RiMusic playlists, can be shared with friends</li>
+    <li class="feature-item">Fetch, display, edit, translate synchronized, or not, songs lyrics</li>
+    <li class="feature-item">Customizable themes</li>
+    <li class="feature-item">Sleep timer with customizable time</li>
+    <li class="feature-item">Audio control: volume app, device, playback speed, pitch, normalization, skip silence</li>
+    <li class="feature-item">Support for Android Auto, Android TV, and YouTube video</li>
+    <li class="feature-item">Widgets (experimental)</li>
+    <li class="feature-item">Check for Updates, which can be enabled or disabled in settings</li>
+    <li class="feature-item">Export cached/downloaded media</li>
+    <li class="feature-item">Export settings</li>
+    <li class="feature-item">Weekly update</li>
+    <li class="feature-item">Plays music even with no internet connection</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function toggleFeatures(appId) {
+      const featuresList = document.getElementById(`features-${appId}`);
+      const button = document.querySelector(`#app-${appId} .features-btn`);
+
+      if (featuresList.style.display === "none") {
+        featuresList.style.display = "block";
+        button.innerHTML = "<i class='fas fa-chevron-up'></i> <span style='margin-left: 5px;'>Hide Features</span>";
+      } else {
+        featuresList.style.display = "none";
+        button.innerHTML = "<i class='fas fa-chevron-down'></i> <span style='margin-left: 5px;'>Features</span>";
+      }
+    }
+
+    function filterApps(platform) {
+      const apps = document.querySelectorAll('.app-card');
+      apps.forEach(app => {
+        if (app.getAttribute('data-platform') === platform) {
+          app.style.display = 'block';
+        } else {
+          app.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
